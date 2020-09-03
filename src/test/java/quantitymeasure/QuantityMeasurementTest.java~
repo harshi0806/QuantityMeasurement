@@ -26,14 +26,14 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenFeet_WhenEqualsToNull_ShouldReturnFalse() {
-        Feet feet1 = new Feet(1.0);
+        Feet feet1 = new Feet(0.0);
         boolean nullCheck = Objects.isNull(feet1);
         Assert.assertFalse(nullCheck);
     }
 
     @Test
     public void givenFeet_WhenNotEqualsToNull_ShouldReturnTrue() {
-        Feet feet1 = new Feet(0.0);
+        Feet feet1 = new Feet(1.0);
         boolean nullCheck = Objects.nonNull(feet1);
         Assert.assertTrue(nullCheck);
     }

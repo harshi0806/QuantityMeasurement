@@ -58,4 +58,14 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(Feet.class, feet1.getClass());
         Assert.assertEquals(Feet.class, feet2.getClass());
     }
+
+    @Test
+    public void givenTwoFeet_WhenCheckedForValue_ShouldReturnEqual() {
+        Feet feet1 = new Feet(0.0);
+        Feet feet2 = new Feet(0.0);
+        int valueCheck1 = feet1.hashCode();
+        int valueCheck2 = feet2.hashCode();
+        Assert.assertEquals(valueCheck1, feet1.hashCode());
+        Assert.assertEquals(valueCheck2, feet2.hashCode());
+    }
 }

@@ -1,5 +1,7 @@
 package quantitymeasure;
 
+import java.util.Objects;
+
 public class Feet {
     private final double value;
 
@@ -13,5 +15,10 @@ public class Feet {
         if (o == null || getClass() != o.getClass()) return false;
         Feet feet = (Feet) o;
         return Double.compare(feet.value, value) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
     }
 }

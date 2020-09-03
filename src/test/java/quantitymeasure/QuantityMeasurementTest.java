@@ -37,4 +37,17 @@ public class QuantityMeasurementTest {
         boolean nullCheck = Objects.nonNull(feet1);
         Assert.assertTrue(nullCheck);
     }
+
+    @Test
+    public void givenTwoFeet_WhenCheckedForReference_ShouldReturnNotSame() {
+        Feet feet1 = new Feet(0.0);
+        Feet feet2 = new Feet(1.0);
+        Assert.assertNotSame(feet1, feet2);
+    }
+
+    @Test
+    public void givenFeet_WhenCheckedForReference_ShouldReturnSame() {
+        Feet feet1 = new Feet(0.0);
+        Assert.assertSame(feet1, feet1);
+    }
 }

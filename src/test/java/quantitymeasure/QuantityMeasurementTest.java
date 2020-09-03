@@ -68,4 +68,11 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(valueCheck1, feet1.hashCode());
         Assert.assertEquals(valueCheck2, feet2.hashCode());
     }
+
+    @Test
+    public void givenZeroInchAndZeroInch_WhenComparedForEquality_ShouldReturnEqual() {
+        Inch inch1 = new Inch(0.0);
+        Inch inch2 = new Inch(0.0);
+        Assert.assertEquals(inch1, inch2);
+    }
 }

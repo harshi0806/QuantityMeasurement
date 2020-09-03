@@ -109,4 +109,20 @@ public class QuantityMeasurementTest {
         Inch inch1 = new Inch(0.0);
         Assert.assertSame(inch1, inch1);
     }
+
+    @Test
+    public void givenTwoInchOfSameType_WhenCheckedForType_ShouldReturnEqual() {
+        Inch inch1 = new Inch(0.0);
+        Inch inch2 = new Inch(0.0);
+        Assert.assertEquals(Inch.class, inch1.getClass());
+        Assert.assertEquals(Inch.class, inch2.getClass());
+    }
+
+    @Test
+    public void givenTwoInchOfDifferentType_WhenCheckedForType_ShouldReturnNotEqual() {
+        Inch inch1 = new Inch(0.0);
+        Feet feet2 = new Feet(0.0);
+        Assert.assertNotEquals(Feet.class, inch1.getClass());
+        Assert.assertNotEquals(Inch.class, feet2.getClass());
+    }
 }

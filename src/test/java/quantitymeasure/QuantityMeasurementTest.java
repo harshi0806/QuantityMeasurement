@@ -119,10 +119,30 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenTwoInchOfDifferentType_WhenCheckedForType_ShouldReturnNotEqual() {
+    public void givenInchAndFeet_WhenCheckedForType_ShouldReturnNotEqual() {
         Inch inch1 = new Inch(0.0);
         Feet feet2 = new Feet(0.0);
         Assert.assertNotEquals(Feet.class, inch1.getClass());
         Assert.assertNotEquals(Inch.class, feet2.getClass());
+    }
+
+    @Test
+    public void givenTwoInch_WhenCheckedForSameValue_ShouldReturnEqual() {
+        Inch inch1 = new Inch(0.0);
+        Inch inch2 = new Inch(0.0);
+        int valueCheck1 = inch1.hashCode();
+        int valueCheck2 = inch2.hashCode();
+        Assert.assertEquals(valueCheck1, inch1.hashCode());
+        Assert.assertEquals(valueCheck2, inch2.hashCode());
+    }
+
+    @Test
+    public void givenInchAndFeet_WhenCheckedForDifferentValue_ShouldReturnEqual() {
+        Feet feet1 = new Feet(0.0);
+        Inch inch2 = new Inch(0.0);
+        int valueCheck1 = feet1.hashCode();
+        int valueCheck2 = inch2.hashCode();
+        Assert.assertEquals(valueCheck1, feet1.hashCode());
+        Assert.assertEquals(valueCheck2, inch2.hashCode());
     }
 }

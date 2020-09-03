@@ -2,23 +2,27 @@ package quantitymeasure;
 
 import java.util.Objects;
 
-public class Inch {
-    private final double value;
+public class LengthConverter {
 
-    public Inch(double value) {
+    private final double value;
+    private final Unit unit;
+
+    public LengthConverter(double value, Unit unit) {
         this.value = value;
+        this.unit = unit;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Inch inch = (Inch) o;
-        return Double.compare(inch.value, value) == 0;
+        LengthConverter that = (LengthConverter) o;
+        return Double.compare(that.value, value) == 0 &&
+                unit == that.unit;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(value);
+        return Objects.hash(value, unit);
     }
 }

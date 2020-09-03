@@ -7,6 +7,10 @@ public class LengthConverter {
     private final double value;
     private final Unit unit;
 
+    public static double toLength(double quantity, Unit unit) {
+        return quantity * unit.value;
+    }
+
     public LengthConverter(double value, Unit unit) {
         this.value = value;
         this.unit = unit;

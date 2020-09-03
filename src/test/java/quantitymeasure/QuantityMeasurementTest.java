@@ -132,4 +132,10 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(valueCheck1, lengthConverter1.hashCode());
         Assert.assertEquals(valueCheck2, lengthConverter2.hashCode());
     }
+
+    @Test
+    public void given1Feet_WhenConvertedToInches_ShouldReturnEqualLengths() {
+        double inches = LengthConverter.toLength(1.0, Unit.INCH);
+        Assert.assertEquals(12.0, inches, 0.0);
+    }
 }

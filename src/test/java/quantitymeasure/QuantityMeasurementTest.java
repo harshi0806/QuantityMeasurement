@@ -249,4 +249,12 @@ public class QuantityMeasurementTest {
         boolean compareLength = quantityMeasurement1.compare(quantityMeasurement2);
         Assert.assertTrue(compareLength);
     }
+
+    @Test
+    public void given1GallonAnd3Point78Litres_WhenAddedInLitres_ShouldReturn7Point57Litres() {
+        quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.GALLON);
+        quantityMeasurement2 = new QuantityMeasurement(3.78, Unit.LITRE);
+        double resultantQuantity = quantityMeasurement1.add(quantityMeasurement2);
+        Assert.assertEquals(7.57, resultantQuantity, 0.1);
+    }
 }

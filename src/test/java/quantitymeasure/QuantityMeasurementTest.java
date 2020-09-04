@@ -134,8 +134,10 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1Feet_WhenConvertedToInches_ShouldReturnEqualLengths() {
-        double inches = QuantityMeasurement.compared(1.0, Unit.INCH);
-        Assert.assertEquals(12.0, inches, 0.0);
+    public void given1FeetAnd12Inch_WhenComparedForEquality_ShouldReturnEqual() {
+        quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.FEET);
+        quantityMeasurement2 = new QuantityMeasurement(12.0, Unit.INCH);
+        boolean compareLength = quantityMeasurement1.compare(quantityMeasurement2);
+        Assert.assertTrue(compareLength);
     }
 }

@@ -1,12 +1,16 @@
 package quantitymeasure;
 
 public enum Unit {
-    FEET(1.0),
-    INCH(12.0);
+    FEET(12.0),
+    INCH(1.0);
 
-    double convertToBaseUnit;
+    private final double convertToBaseUnit;
 
     Unit(double convertToBaseUnit) {
         this.convertToBaseUnit = convertToBaseUnit;
+    }
+
+    public double convertToBaseUnit(double value) {
+        return value * convertToBaseUnit;
     }
 }

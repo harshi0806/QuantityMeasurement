@@ -9,7 +9,8 @@ public enum Unit {
     LITRE(1.0),
     MILLILITRE(0.001),
     GRAM(0.001),
-    KILOGRAM(1.0);
+    KILOGRAM(1.0),
+    TONNE(1000.0);
     private final double convertToBaseUnit;
 
     Unit(double convertToBaseUnit) {

@@ -235,9 +235,17 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1GallonAnd3Point78Liter_WhenComparedForEquality_ShouldReturnTrue() {
+    public void given1GallonAnd3Point78Litre_WhenComparedForEquality_ShouldReturnTrue() {
         quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.GALLON);
-        quantityMeasurement2 = new QuantityMeasurement(3.78, Unit.LITER);
+        quantityMeasurement2 = new QuantityMeasurement(3.78, Unit.LITRE);
+        boolean compareLength = quantityMeasurement1.compare(quantityMeasurement2);
+        Assert.assertTrue(compareLength);
+    }
+
+    @Test
+    public void given1LitreAnd1000Millilitre_WhenComparedForEquality_ShouldReturnTrue() {
+        quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.LITRE);
+        quantityMeasurement2 = new QuantityMeasurement(1000.0, Unit.MILLILITRE);
         boolean compareLength = quantityMeasurement1.compare(quantityMeasurement2);
         Assert.assertTrue(compareLength);
     }

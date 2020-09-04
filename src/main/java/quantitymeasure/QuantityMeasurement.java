@@ -2,16 +2,16 @@ package quantitymeasure;
 
 import java.util.Objects;
 
-public class LengthConverter {
+public class QuantityMeasurement {
 
     private final double value;
     private final Unit unit;
 
-    public static double toLength(double quantity, Unit unit) {
-        return quantity * unit.value;
+    public static double compared(double quantity, Unit unit) {
+        return quantity * unit.convertToBaseUnit;
     }
 
-    public LengthConverter(double value, Unit unit) {
+    public QuantityMeasurement(double value, Unit unit) {
         this.value = value;
         this.unit = unit;
     }
@@ -20,7 +20,7 @@ public class LengthConverter {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        LengthConverter that = (LengthConverter) o;
+        QuantityMeasurement that = (QuantityMeasurement) o;
         return Double.compare(that.value, value) == 0 &&
                 unit == that.unit;
     }

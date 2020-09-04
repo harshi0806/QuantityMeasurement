@@ -4,9 +4,9 @@ public enum Unit {
     FEET(1.0),
     INCH(12.0);
 
-    double value;
+    double convertToBaseUnit;
 
-    Unit(double value) {
-        this.value = value;
+    Unit(double convertToBaseUnit) {
+        this.convertToBaseUnit = convertToBaseUnit;
     }
 }

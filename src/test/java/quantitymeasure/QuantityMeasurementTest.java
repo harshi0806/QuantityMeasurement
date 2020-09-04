@@ -206,87 +206,95 @@ public class QuantityMeasurementTest {
     public void given2InchAnd2Inch_WhenAddedInInches_ShouldReturn4Inch() {
         quantityMeasurement1 = new QuantityMeasurement(2.0, Unit.INCH);
         quantityMeasurement2 = new QuantityMeasurement(2.0, Unit.INCH);
-        double resultantQuantity = quantityMeasurement1.add(quantityMeasurement2);
-        Assert.assertEquals(4.0, resultantQuantity, 0.0);
+        double resultantLength = quantityMeasurement1.add(quantityMeasurement2);
+        Assert.assertEquals(4.0, resultantLength, 0.0);
     }
 
     @Test
     public void given1FeetAnd2Inch_WhenAddedInInches_ShouldReturn14Inch() {
         quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.FEET);
         quantityMeasurement2 = new QuantityMeasurement(2.0, Unit.INCH);
-        double resultantQuantity = quantityMeasurement1.add(quantityMeasurement2);
-        Assert.assertEquals(14.0, resultantQuantity, 0.0);
+        double resultantLength = quantityMeasurement1.add(quantityMeasurement2);
+        Assert.assertEquals(14.0, resultantLength, 0.0);
     }
 
     @Test
     public void given1FeetAnd1Feet_WhenAddedInInches_ShouldReturn24Inch() {
         quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.FEET);
         quantityMeasurement2 = new QuantityMeasurement(1.0, Unit.FEET);
-        double resultantQuantity = quantityMeasurement1.add(quantityMeasurement2);
-        Assert.assertEquals(24.0, resultantQuantity, 0.0);
+        double resultantLength = quantityMeasurement1.add(quantityMeasurement2);
+        Assert.assertEquals(24.0, resultantLength, 0.0);
     }
 
     @Test
     public void given2InchAnd2Point5Centimeter_WhenAddedInInches_ShouldReturn3Inch() {
         quantityMeasurement1 = new QuantityMeasurement(2.0, Unit.INCH);
         quantityMeasurement2 = new QuantityMeasurement(2.5, Unit.CENTIMETER);
-        double resultantQuantity = quantityMeasurement1.add(quantityMeasurement2);
-        Assert.assertEquals(3.0, resultantQuantity, 0.0);
+        double resultantLength = quantityMeasurement1.add(quantityMeasurement2);
+        Assert.assertEquals(3.0, resultantLength, 0.0);
     }
 
     @Test
     public void given1GallonAnd3Point78Litre_WhenComparedForEquality_ShouldReturnTrue() {
         quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.GALLON);
         quantityMeasurement2 = new QuantityMeasurement(3.78, Unit.LITRE);
-        boolean compareLength = quantityMeasurement1.compare(quantityMeasurement2);
-        Assert.assertTrue(compareLength);
+        boolean compareVolume = quantityMeasurement1.compare(quantityMeasurement2);
+        Assert.assertTrue(compareVolume);
     }
 
     @Test
     public void given1LitreAnd1000Millilitre_WhenComparedForEquality_ShouldReturnTrue() {
         quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.LITRE);
         quantityMeasurement2 = new QuantityMeasurement(1000.0, Unit.MILLILITRE);
-        boolean compareLength = quantityMeasurement1.compare(quantityMeasurement2);
-        Assert.assertTrue(compareLength);
+        boolean compareVolume = quantityMeasurement1.compare(quantityMeasurement2);
+        Assert.assertTrue(compareVolume);
     }
 
     @Test
     public void given1GallonAnd3Point78Litres_WhenAddedInLitres_ShouldReturn7Point57Litres() {
         quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.GALLON);
         quantityMeasurement2 = new QuantityMeasurement(3.78, Unit.LITRE);
-        double resultantQuantity = quantityMeasurement1.add(quantityMeasurement2);
-        Assert.assertEquals(7.57, resultantQuantity, 0.1);
+        double resultantVolume = quantityMeasurement1.add(quantityMeasurement2);
+        Assert.assertEquals(7.57, resultantVolume, 0.1);
     }
 
     @Test
     public void given1LitreAnd1000Millilitres_WhenAddedInLitres_ShouldReturn2Litres() {
         quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.LITRE);
         quantityMeasurement2 = new QuantityMeasurement(1000.0, Unit.MILLILITRE);
-        double resultantQuantity = quantityMeasurement1.add(quantityMeasurement2);
-        Assert.assertEquals(2.0, resultantQuantity, 0.1);
+        double resultantVolume = quantityMeasurement1.add(quantityMeasurement2);
+        Assert.assertEquals(2.0, resultantVolume, 0.1);
     }
 
     @Test
     public void given1KilogramAnd1000Gram_WhenComparedForEquality_ShouldReturnTrue() {
         quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.KILOGRAM);
         quantityMeasurement2 = new QuantityMeasurement(1000.0, Unit.GRAM);
-        boolean compareLength = quantityMeasurement1.compare(quantityMeasurement2);
-        Assert.assertTrue(compareLength);
+        boolean compareWeight = quantityMeasurement1.compare(quantityMeasurement2);
+        Assert.assertTrue(compareWeight);
     }
 
     @Test
     public void given1TonneAnd1000Kilogram_WhenComparedForEquality_ShouldReturnTrue() {
         quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.TONNE);
         quantityMeasurement2 = new QuantityMeasurement(1000.0, Unit.KILOGRAM);
-        boolean compareLength = quantityMeasurement1.compare(quantityMeasurement2);
-        Assert.assertTrue(compareLength);
+        boolean compareWeight = quantityMeasurement1.compare(quantityMeasurement2);
+        Assert.assertTrue(compareWeight);
     }
 
     @Test
     public void given1TonneAnd1000Gram_WhenAddedInGram_ShouldReturn1001Kilogram() {
         quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.TONNE);
         quantityMeasurement2 = new QuantityMeasurement(1000.0, Unit.GRAM);
-        double resultantQuantity = quantityMeasurement1.add(quantityMeasurement2);
-        Assert.assertEquals(1001.0, resultantQuantity, 0.0);
+        double resultantWeight = quantityMeasurement1.add(quantityMeasurement2);
+        Assert.assertEquals(1001.0, resultantWeight, 0.0);
+    }
+
+    @Test
+    public void given212FahrenheitAnd100Celsius_WhenConvertedForEquality_ShouldReturnEqual() {
+        double degCelsius = quantityMeasurement1.convertTemperature(212, Unit.CELSIUS);
+        double degFahrenheit = quantityMeasurement2.convertTemperature(100, Unit.FAHRENHEIT);
+        Assert.assertEquals(100.0, degCelsius, 0.0);
+        Assert.assertEquals(212.0, degFahrenheit, 0.0);
     }
 }

@@ -14,11 +14,17 @@ public class QuantityMeasurement {
 
     public boolean compare(QuantityMeasurement thatUnit) {
         return Double.compare(this.unit.convertToBaseUnit(this.value),
-                              thatUnit.unit.convertToBaseUnit(thatUnit.value)) == 0;
+                    thatUnit.unit.convertToBaseUnit(thatUnit.value)) == 0;
     }
 
     public double add(QuantityMeasurement thatUnit) {
         return this.unit.convertToBaseUnit(this.value) + thatUnit.unit.convertToBaseUnit(thatUnit.value);
+    }
+
+    public static double convertTemperature(double temperature, Unit check) {
+        if (check == Unit.CELSIUS)
+            return (temperature - 32) / 1.8;
+        return (temperature * 1.8) + 32;
     }
 
     @Override

@@ -281,4 +281,12 @@ public class QuantityMeasurementTest {
         boolean compareLength = quantityMeasurement1.compare(quantityMeasurement2);
         Assert.assertTrue(compareLength);
     }
+
+    @Test
+    public void given1TonneAnd1000Gram_WhenAddedInGram_ShouldReturn1001Kilogram() {
+        quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.TONNE);
+        quantityMeasurement2 = new QuantityMeasurement(1000.0, Unit.GRAM);
+        double resultantQuantity = quantityMeasurement1.add(quantityMeasurement2);
+        Assert.assertEquals(1001.0, resultantQuantity, 0.0);
+    }
 }

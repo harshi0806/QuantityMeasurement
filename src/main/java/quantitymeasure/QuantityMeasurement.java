@@ -13,18 +13,11 @@ public class QuantityMeasurement {
     }
 
     public boolean compare(QuantityMeasurement thatUnit) {
-        if (this.unit.getClass() != thatUnit.unit.getClass())
-            return false;
-        if (this.unit.equals(thatUnit.unit))
-            return this.equals(thatUnit);
         return Double.compare(this.unit.convertToBaseUnit(this.value),
                               thatUnit.unit.convertToBaseUnit(thatUnit.value)) == 0;
     }
 
     public double add(QuantityMeasurement thatUnit) {
-        if (this.unit.getClass() != thatUnit.unit.getClass() ||
-                !this.unit.supportAddition() || !thatUnit.unit.supportAddition())
-            return 0.0;
         return this.unit.convertToBaseUnit(this.value) + thatUnit.unit.convertToBaseUnit(thatUnit.value);
     }
 

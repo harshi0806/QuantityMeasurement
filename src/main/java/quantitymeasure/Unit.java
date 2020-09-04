@@ -14,4 +14,8 @@ public enum Unit {
     public double convertToBaseUnit(double value) {
         return value * convertToBaseUnit;
     }
+
+    public boolean supportAddition() {
+        return true;
+    }
 }

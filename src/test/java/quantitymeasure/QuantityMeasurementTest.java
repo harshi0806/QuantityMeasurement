@@ -1,7 +1,9 @@
 package quantitymeasure;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -14,6 +16,9 @@ public class QuantityMeasurementTest {
     @Mock
     QuantityMeasurement quantityMeasurement1;
     QuantityMeasurement quantityMeasurement2;
+
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
     @Test
     public void givenZeroFeetAndZeroFeet_WhenComparedForEquality_ShouldReturnEqual() {
@@ -195,5 +200,13 @@ public class QuantityMeasurementTest {
         quantityMeasurement2 = new QuantityMeasurement(5.0, Unit.CENTIMETER);
         boolean compareLength = quantityMeasurement1.compare(quantityMeasurement2);
         Assert.assertTrue(compareLength);
+    }
+
+    @Test
+    public void given2InchAnd2Inch_WhenAddedInInches_ShouldReturn4Inch() {
+        quantityMeasurement1 = new QuantityMeasurement(2.0, Unit.INCH);
+        quantityMeasurement2 = new QuantityMeasurement(2.0, Unit.INCH);
+        double resultantQuantity = quantityMeasurement1.add(quantityMeasurement2);
+        Assert.assertEquals(4.0, resultantQuantity, 0.0);
     }
 }

@@ -7,6 +7,11 @@ public class QuantityMeasurement {
     private final double value;
     private final Unit unit;
 
+    public QuantityMeasurement(double value, Unit unit) {
+        this.value = value;
+        this.unit = unit;
+    }
+
     public boolean compare(QuantityMeasurement thatUnit) {
         if (this.unit.getClass() != thatUnit.unit.getClass())
             return false;
@@ -16,9 +21,11 @@ public class QuantityMeasurement {
                               thatUnit.unit.convertToBaseUnit(thatUnit.value)) == 0;
     }
 
-    public QuantityMeasurement(double value, Unit unit) {
-        this.value = value;
-        this.unit = unit;
+    public double add(QuantityMeasurement thatUnit) {
+        if (this.unit.getClass() != thatUnit.unit.getClass() ||
+                !this.unit.supportAddition() || !thatUnit.unit.supportAddition())
+            return 0.0;
+        return this.unit.convertToBaseUnit(this.value) + thatUnit.unit.convertToBaseUnit(thatUnit.value);
     }
 
     @Override

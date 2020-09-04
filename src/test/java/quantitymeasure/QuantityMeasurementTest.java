@@ -225,4 +225,12 @@ public class QuantityMeasurementTest {
         double resultantQuantity = quantityMeasurement1.add(quantityMeasurement2);
         Assert.assertEquals(24.0, resultantQuantity, 0.0);
     }
+
+    @Test
+    public void given2InchAnd2Point5Centimeter_WhenAddedInInches_ShouldReturn3Inch() {
+        quantityMeasurement1 = new QuantityMeasurement(2.0, Unit.INCH);
+        quantityMeasurement2 = new QuantityMeasurement(2.5, Unit.CENTIMETER);
+        double resultantQuantity = quantityMeasurement1.add(quantityMeasurement2);
+        Assert.assertEquals(3.0, resultantQuantity, 0.0);
+    }
 }

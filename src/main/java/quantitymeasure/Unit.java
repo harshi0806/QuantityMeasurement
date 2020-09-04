@@ -6,8 +6,10 @@ public enum Unit {
     YARD(36.0),
     CENTIMETER(0.4),
     GALLON(3.78),
-    LITRE(1),
-    MILLILITRE(0.001);
+    LITRE(1.0),
+    MILLILITRE(0.001),
+    GRAM(0.001),
+    KILOGRAM(1.0);
     private final double convertToBaseUnit;
 
     Unit(double convertToBaseUnit) {

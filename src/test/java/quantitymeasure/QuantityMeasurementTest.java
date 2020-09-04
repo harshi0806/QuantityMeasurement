@@ -180,4 +180,12 @@ public class QuantityMeasurementTest {
         boolean compareLength = quantityMeasurement1.compare(quantityMeasurement2);
         Assert.assertTrue(compareLength);
     }
+
+    @Test
+    public void given1YardAnd3Feet_WhenComparedForEquality_ShouldReturnTrue() {
+        quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.YARD);
+        quantityMeasurement2 = new QuantityMeasurement(3.0, Unit.FEET);
+        boolean compareLength = quantityMeasurement1.compare(quantityMeasurement2);
+        Assert.assertTrue(compareLength);
+    }
 }

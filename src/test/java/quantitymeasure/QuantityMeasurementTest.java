@@ -233,4 +233,12 @@ public class QuantityMeasurementTest {
         double resultantQuantity = quantityMeasurement1.add(quantityMeasurement2);
         Assert.assertEquals(3.0, resultantQuantity, 0.0);
     }
+
+    @Test
+    public void given1GallonAnd3Point78Liter_WhenComparedForEquality_ShouldReturnTrue() {
+        quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.GALLON);
+        quantityMeasurement2 = new QuantityMeasurement(3.78, Unit.LITER);
+        boolean compareLength = quantityMeasurement1.compare(quantityMeasurement2);
+        Assert.assertTrue(compareLength);
+    }
 }

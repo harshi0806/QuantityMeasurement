@@ -166,9 +166,17 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1YardAnd36Inch_WhenComparedForEquality_ShouldReturnTrue() {
+    public void given36InchAnd1Yard_WhenComparedForEquality_ShouldReturnTrue() {
         quantityMeasurement1 = new QuantityMeasurement(36.0, Unit.INCH);
         quantityMeasurement2 = new QuantityMeasurement(1.0, Unit.YARD);
+        boolean compareLength = quantityMeasurement1.compare(quantityMeasurement2);
+        Assert.assertTrue(compareLength);
+    }
+
+    @Test
+    public void given1YardAnd36Inch_WhenComparedForEquality_ShouldReturnTrue() {
+        quantityMeasurement1 = new QuantityMeasurement(1.0, Unit.YARD);
+        quantityMeasurement2 = new QuantityMeasurement(36.0, Unit.INCH);
         boolean compareLength = quantityMeasurement1.compare(quantityMeasurement2);
         Assert.assertTrue(compareLength);
     }
